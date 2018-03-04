@@ -19,5 +19,5 @@ def predict_emotion(img_str):
     from keras.models import load_model
     model = load_model("model.h5")
     pred = np.argmax(model.predict(arr))
-    labels = ['Angry', 'Disquist', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+    labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
     return labels[pred]
