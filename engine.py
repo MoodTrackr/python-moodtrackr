@@ -4,7 +4,10 @@ import numpy as np
 import io
 
 def convert_to_array(img_str):
-    return imread(io.BytesIO(base64.b64decode(img_str)))
+    try:
+        return imread(io.BytesIO(base64.b64decode(img_str)))
+    except:
+        raise ValueError('Ivalid Image String')
 
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.114]).reshape(rgb.shape[0], rgb.shape[1], 1)
